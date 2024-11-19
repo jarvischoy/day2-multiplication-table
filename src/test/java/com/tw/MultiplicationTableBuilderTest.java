@@ -2,6 +2,7 @@ package com.tw;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class MultiplicationTableBuilderTest {
@@ -28,7 +29,7 @@ class MultiplicationTableBuilderTest {
         boolean isInRange = multiplicationTableBuilder.isInRange(number);
 
         // Then
-        assertTrue(!isInRange);
+        assertFalse(isInRange);
     }
 
     @Test
@@ -41,7 +42,7 @@ class MultiplicationTableBuilderTest {
         boolean isInRange = multiplicationTableBuilder.isInRange(number);
 
         // Then
-        assertTrue(!isInRange);
+        assertFalse(isInRange);
     }
 
     @Test
@@ -69,7 +70,7 @@ class MultiplicationTableBuilderTest {
         boolean isStarterNotBiggerThanEnd = multiplicationTableBuilder.isStarterNotBiggerThanEnd(starter, end);
 
         // Then
-        assertTrue(!isStarterNotBiggerThanEnd);
+        assertFalse(isStarterNotBiggerThanEnd);
     }
 
     @Test
