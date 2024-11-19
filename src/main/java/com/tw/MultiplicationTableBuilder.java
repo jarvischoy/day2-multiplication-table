@@ -12,4 +12,8 @@ public class MultiplicationTableBuilder {
     public boolean isValid(int starter, int end) {
         return isInRange(starter) && isInRange(end) && isStarterNotBiggerThanEnd(starter, end);
     }
+
+    public String generateExpression(int starter, int end) {
+        return String.format("%d*%d=%d", starter, end, starter * end);
+    }
 }
