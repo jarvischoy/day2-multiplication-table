@@ -1,5 +1,8 @@
 package com.tw;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class MultiplicationTableBuilder {
     public boolean isInRange(int number) {
         return number > 0 && number <= 1000;
@@ -18,18 +21,11 @@ public class MultiplicationTableBuilder {
     }
 
     public String generateTable(int starter, int end) {
-        StringBuilder multiplicationTable = new StringBuilder();
-
-        for (int i = starter; i <= end; i++) {
-            for (int j = starter; j <= i; j++) {
-                multiplicationTable.append(generateExpression(j, i));
-                if (j != i) {
-                    multiplicationTable.append(" ");
-                }
-            }
-            multiplicationTable.append(System.lineSeparator());
-        }
-
-        return multiplicationTable.toString();
+        return IntStream.rangeClosed(starter, end)
+                .mapToObj(i -> IntStream.rangeClosed(starter, i)
+                        .mapToObj(j -> generateExpression(j, i))
+                        .collect(Collectors.joining(" ")))
+                .collect(Collectors.joining(System.lineSeparator()))
+                .concat(System.lineSeparator());
     }
 }
