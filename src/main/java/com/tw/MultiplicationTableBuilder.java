@@ -8,4 +8,8 @@ public class MultiplicationTableBuilder {
     public boolean isStarterNotBiggerThanEnd(int starter, int end) {
         return starter <= end;
     }
+
+    public boolean isValid(int starter, int end) {
+        return isInRange(starter) && isInRange(end) && isStarterNotBiggerThanEnd(starter, end);
+    }
 }
