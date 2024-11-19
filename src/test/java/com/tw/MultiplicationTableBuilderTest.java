@@ -159,4 +159,20 @@ class MultiplicationTableBuilderTest {
 
         assertEquals(expectedExpression, expression);
     }
+
+    @Test
+    void should_return_multiplicationTable_when_generateTable_given_a_starter_2_and_end_4() {
+        // Given
+        MultiplicationTableBuilder multiplicationTableBuilder = new MultiplicationTableBuilder();
+        int starter = 2;
+        int end = 4;
+
+        // When
+        String multiplicationTable = multiplicationTableBuilder.generateTable(starter, end);
+
+        // Then
+        String expectedMultiplicationTable = String.format("2*2=4%n2*3=6 3*3=9%n2*4=8 3*4=12 4*4=16%n");
+
+        assertEquals(expectedMultiplicationTable, multiplicationTable);
+    }
 }
